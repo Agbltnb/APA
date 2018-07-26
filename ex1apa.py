@@ -15,8 +15,10 @@ def insertion_sort(lista):
             lista[t] = lista[t - 1]
             t -= 1
         lista[t] = aux
-    print("\n ordenação com insertion :" + str(lista))
-    print("\n" + str(time.time()-start) + " segundo")
+    print("tempo da insertion sort:\n" + str(time.time()-start) + " segundo\n")
+    for i in range(len(lista)):
+        print(" " + str(lista[i]))
+    
         
 
         
@@ -34,11 +36,13 @@ def selection_sort(lista):
             if(int(lista[t]) < int(lista[imenor])):
                 imenor = t
                                 
-    aux = lista[int(i)]
-    lista[int(i)] = lista[imenor]
-    lista[imenor] = aux
-    print("\n a ordenação com selection:" + str(lista))
-    print("\n" + str(time.time()-start) +"segundo")
+        aux = lista[int(i)]
+        lista[int(i)] = lista[imenor]
+        lista[imenor] = aux
+    print("tempo da selection sort:\n" + str(time.time()-start) +" segundo\n")
+    for i in range(len(lista)):
+        print(" " + str(lista[i]))
+    
 
  
 try: #fazer testes para poder controlar os erros.
@@ -49,8 +53,11 @@ try: #fazer testes para poder controlar os erros.
     lista = file.readlines()
     print(lista)
     print("tamanho = " + str(len(lista))) #verifica os elementos do vetor para fazer a ordenação
+    lista2 = [len(lista)]
+    lista2 = lista[:]
     insertion_sort(lista)
-    selection_sort(lista)
+    print(lista2)
+    selection_sort(lista2)
      
 finally:
     file.close()
